@@ -183,7 +183,7 @@ function App() {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (settingsOpen || pendingSnippet) {
+      if (settingsOpen || pendingSnippet || snippetPickerOpen || jsonSettingsOpen) {
         return;
       }
 
@@ -262,7 +262,7 @@ function App() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown, true);
     };
-  }, [activeFilePath, code, isRunning, pendingSnippet, settingsOpen, shortcuts]);
+  }, [activeFilePath, code, isRunning, jsonSettingsOpen, pendingSnippet, settingsOpen, shortcuts, snippetPickerOpen]);
 
   const handleRun = () => {
     if (isRunning) {
